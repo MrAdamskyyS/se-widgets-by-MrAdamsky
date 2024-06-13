@@ -1,0 +1,156 @@
+{
+  "spinCommand": {
+    "type": "text",
+    "label": "Komenda do koła",
+    "value": "!tospin"
+  },
+  "privileges": {
+    "type": "dropdown",
+    "label": "Kto może używać?:",
+    "value": "mausers",
+    "options": {
+      "everybody": "Wszyscy",
+      "subs": "Suby",
+      "vips": "Vipy",
+      "mods": "Mody",
+      "broadcaster": "Streamer",
+      "mausers": "Ręczne przypisanie"
+    }
+  },
+  "manualyausers": {
+    "type": "text",
+    "label": "Użytkownicy oddzieleni ,",
+    "value": "MrAdamsky,"
+  },
+  "segments": {
+    "type": "text",
+    "label": "Segmenty koła oddzielone ,",
+    "value": "1s,5m,1h,4h,12h,PERM"
+  },
+  "segmentsValues": {
+    "type": "text",
+    "label": "Wartości segmentów koła oddzielone ,",
+    "value": "1,300,3600,14400,43200,PERM"
+  },
+  "segmentColors": {
+    "type": "text",
+    "label": "Kolory segmentów oddzielone ,",
+    "value": "#ffa200,#ea00ff,#ffa200,#ea00ff,#e3f700,#f00"
+  },
+  "segmentWeights": {
+    "type": "text",
+    "label": "Wagi segmentów oddzielone ,",
+    "value": "45,25.8,17,8,4,0.2"
+  },
+  "channelId": {
+    "type": "password",
+    "label": "Id kanału streamelements",
+    "value": ""
+  },
+  "jwtToken": {
+    "type": "password",
+    "label": "JWT Token kanału streamelements",
+    "value": ""
+  },
+  "displayImage": {
+    "type": "hidden",
+    "label": "",
+    "value": false
+  },
+  "wheelImage": {
+    "type": "hidden",
+    "label": "",
+    "value": ""
+  },
+  "wheelSize": {
+    "type": "number",
+    "label": "Rozmiar koła póki co nie zmieniać",
+    "value": 580
+  },
+  "innerRadius": {
+    "type": "number",
+    "label": "Rozmiar koła w środku póki co nie zmieniać",
+    "value": 34.4
+  },
+  "pins": {
+    "type": "number",
+    "label": "Liczba pinów na kole",
+    "value": 30
+  },
+  "background": {
+    "type": "hidden",
+    "label": "",
+    "value": ""
+  },
+  "textSize": {
+    "type": "number",
+    "label": "Rozmiar tekstu na kole",
+    "value": 25
+  },
+  "spins": {
+    "type": "number",
+    "label": "Ilość obrotów",
+    "value": 5
+  },
+  "duration": {
+    "type": "slider",
+    "label": "Długość animacji w sekundach (s)",
+    "value": 3,
+    "min": 0,
+    "max": 10,
+    "steps": 1
+  },
+  "listener": {
+    "type": "hidden",
+    "options": {
+      "none": "None (command only)",
+      "tip-latest": "Tip",
+      "cheer-latest": "Cheer"
+    },
+    "value": "none"
+  },
+  "minAmount": {
+    "type": "hidden",
+    "label": "",
+    "step": 0.01,
+    "value": 0
+  },
+  "modifierFormula": {
+    "type": "hidden",
+    "readonly": "readonly",
+    "label": "",
+    "value": ""
+  },
+  "amountModifier": {
+    "type": "hidden",
+    "label": "",
+    "step": 0.01,
+    "value": 0
+  },
+  "keywordModifier": {
+    "type": "hidden",
+    "label": "",
+    "value": 0
+  },
+  "maxChance": {
+    "type": "hidden",
+    "label": "",
+    "value": 0
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "Koło timeoutów"
+  },
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "by lx modified by MrAdamsky"
+  },
+  "widgetVersion": {
+    "type": "hidden",
+    "value": "1.1"
+  },
+  "widgetUpdateUrl": {
+    "type": "hidden",
+    "value": "https://github.com/StreamElements/widgets/blob/master/WheelOfFortune/"
+  }
+}
