@@ -1,4 +1,4 @@
-let fieldData, apiToken, toValuesArray, message, channelId, jwtToken;
+let fieldData, apiToken, toValuesArray, channelId, jwtToken, newMessage;
 let theWheel, channelName, spinCommand, cooldown, spins, segments = [];
 
 const random_hex_color_code = () => {
@@ -50,111 +50,83 @@ const processText = (text, emotes) => {
     return processedText.trim();
 };
 
-
 async function sendMessage(token, channel, message) {
     const url = `https://api.streamelements.com/kappa/v2/bot/${channel}/say`;
-    const headers = {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json'
+    const bodyData = { "message": message };
+    const options = {
+    method: 'POST',
+    headers: {
+        Accept: 'application/json; charset=utf-8',
+        'Content-Type': 'application/json',
+        Authorization:  `Bearer ${token}`
+    },
+    body: JSON.stringify(bodyData) // Stringify obiektu do JSON
     };
-    const body = JSON.stringify({
-        'message': message
-    });
 
     try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: headers,
-            body: body
-        });
-
-        if (response.ok) {
-            console.log('Message sent successfully!');
-        } else {
-            console.error(`Failed to send message: ${headers.authorization} ${response.status} ${response.statusText}`);
-        }
+    const response = await fetch(url, options);
+    const data = await response.json();
+    console.log(data);
     } catch (error) {
-        console.error('Error:', error);
+    console.error(error);
     }
 }
 
-const spinWheel = (obj) => {
-    const skippable = ["bot:counter", "event:test", "event:skip"]; //Array of events coming to widget that are not queued so they can come even queue is on hold
+async function spinWheel(obj) {
+    const skippable = ["bot:counter", "event:test", "event:skip"];
 
     if (skippable.indexOf(obj.detail.listener) !== -1) return;
+
     if (obj.detail.listener === "message") {
         let data = obj.detail.event.data;
-        const {text, userId, displayName, emotes} = data;
+        const { text, userId, displayName, emotes } = data;
 
         const processedText = processText(text, emotes);
-        const usertoBan = processedText;
+        const userToBan = processedText;
 
         const realCommands = spinCommand.split(',').filter(s => !!s).map(s => s.trim());
         const commandThatMatches = realCommands.find(command => text.toLowerCase().startsWith(command.toLowerCase()));
+
         if (!commandThatMatches || !checkPrivileges(data)) {
             return;
         }
-        let userban = usertoBan.toLowerCase().replace(commandThatMatches.toLowerCase(), '').trim();
-        console.log(userban);
+
+        let userBan = userToBan.toLowerCase().replace(commandThatMatches.toLowerCase(), '').trim();
+        console.log(userBan);
 
         if (wheelSpinning) return;
+
         document.getElementById("container").style.visibility = "visible";
         setTimeout(startSpin, 1000);
-        //startSpin();
-        setTimeout(
-            function () {
-                wheelSpinning = false; // set wheel not spinning, you can add callback to SE API here, to add points to `user`
-                //var winningSegment = theWheel.getIndicatedSegment(); //- use this as reference
-                console.log(theWheel.getIndicatedSegment());
-              	if(theWheel.getIndicatedSegment().text == "PERM"){
-                  	message = "/ban " + userban;
-                } else {
-                	message = "/timeout " + userban + " " + theWheel.getIndicatedSegment().value;
-                }
-              	document.getElementById("timeoutwho").style.visibility = "visible";
-              	document.getElementById("timeoutwho").innerHTML = userban + " leci na " + theWheel.getIndicatedSegment().text;
-                console.log(message);
-              	
-                sendMessage(jwtToken,channelId,message);
-              	setTimeout(function (){document.getElementById("container").style.visibility = "hidden";
-                                      document.getElementById("timeoutwho").style.visibility = "hidden";}, 5000);
-        
-            }, cooldown * 1500 + 100);
-    } else if (obj.detail.listener === fieldData.listener) {
-        const data = obj.detail.event;
-        if (data.amount < fieldData.minAmount) {
-            SE_API.resumeQueue();
-            return;
-        }
-        for (let i in segments) {
-            if (data.message.toLowerCase().indexOf(segments[i].text.toLowerCase()) !== -1) {
 
-                let chance = 1 / segments.length * (1 + (fieldData.keywordModifier + data.amount * fieldData.amountModifier) / 100)
+        setTimeout(async function () {
+            wheelSpinning = false;
+            console.log(theWheel.getIndicatedSegment());
 
-                chance = Math.min(fieldData.maxChance / 100, chance);
-                console.log(chance);
-                if (Math.random() < chance) {
-                    let stopAt = theWheel.getRandomForSegment(i + 1);
-                    theWheel.animation.stopAngle = stopAt;
-                }
-                break;
+            if (theWheel.getIndicatedSegment().text == "PERM") {
+                newMessage = "@MrAdamsky wylosowało perm " + userBan;
+            } else {
+                newMessage = "@MrAdamsky wylosowało to na " + userBan + " " + theWheel.getIndicatedSegment().value;
             }
-        }
-        startSpin();
-        setTimeout(
-            function () {
-                wheelSpinning = false; // set wheel not spinning, you can add callback to SE API here, to add points to `user`
-                //var winningSegment = theWheel.getIndicatedSegment(); //- use this as reference
-                console.log(theWheel.getIndicatedSegment());
-                
-            }, cooldown * 1500 + 100);
+
+            document.getElementById("timeoutwho").style.visibility = "visible";
+            document.getElementById("timeoutwho").innerHTML = userBan + " leci na " + theWheel.getIndicatedSegment().text;
+
+            setTimeout(function () {
+                document.getElementById("container").style.visibility = "hidden";
+                document.getElementById("timeoutwho").style.visibility = "hidden";
+            }, 5000);
+
+            console.log("Sending message: " + newMessage);
+            await sendMessage(jwtToken, channelId, newMessage);
+            console.log("Message sent.");
+
+        }, cooldown * 1500 + 100);
 
     } else {
         SE_API.resumeQueue();
     }
-
 }
-
 window.addEventListener('onEventReceived', function (obj) {
     if(!fieldData){
         return;
