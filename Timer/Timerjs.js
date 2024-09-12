@@ -89,6 +89,7 @@ function updateTimer() {
 // Funkcja startu timera
 function startTimer() {
     if (!isRunning) {
+        document.getElementById("timer").style.visibility = "visible";
         timerInterval = setInterval(updateTimer, 1000);
         isRunning = true;
     }
@@ -102,6 +103,7 @@ function pauseTimer() {
 
 // Funkcja resetu timera (zachowuje aktualny stan, ale resetuje licznik)
 function resetTimer() {
+    document.getElementById("timer").style.visibility = "hidden"
     clearInterval(timerInterval);
     seconds = 0;
     document.getElementById("timer").innerHTML = "00:00:00";
