@@ -1,0 +1,41 @@
+{
+    "timerStartCommands": {
+      "type": "text",
+      "label": "Komendy wywołujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "value": "!timerstart"
+    },
+    "timerStopCommands": {
+      "type": "text",
+      "label": "Komendy stopujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "value": "!timerstop"
+    },
+    "timerPauseCommands": {
+      "type": "text",
+      "label": "Komendy pauzujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "value": "!timerpause"
+    },
+      "privileges": {
+      "type": "dropdown",
+      "label": "Dostęp do Timer'a",
+      "value": "mods",
+      "options": {
+        "mods": "Moderatorzy"
+      }
+    },
+    "widgetName": {
+      "type": "hidden",
+      "value": "Timer by MrAdamsky"
+    },
+    "widgetAuthor": {
+      "type": "hidden",
+      "value": "MrAdamsky"
+    },
+    "widgetVersion": {
+      "type": "hidden",
+      "value": "1.0"
+    },
+    "widgetUpdateUrl": {
+      "type": "hidden",
+      "value": ""
+    }
+  }
