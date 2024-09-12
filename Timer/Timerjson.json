@@ -9,12 +9,12 @@
       "label": "Komendy stopujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
       "value": "!timerstop"
     },
-    "timerPauseCommands": {
-      "type": "text",
-      "label": "Komendy pauzujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
-      "value": "!timerpause"
+    "timerResetCommands": {
+        "type": "text",
+        "label": "Komendy pauzujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+        "value": "!timerreset"
     },
-      "privileges": {
+    "privileges": {
       "type": "dropdown",
       "label": "Dostęp do Timer'a",
       "value": "mods",
@@ -36,6 +36,6 @@
     },
     "widgetUpdateUrl": {
       "type": "hidden",
-      "value": ""
+      "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/Timer"
     }
   }
