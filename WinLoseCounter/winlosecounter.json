@@ -1,17 +1,27 @@
 {
-    "timerStartCommands": {
+    "wlCounterStartCommands": {
       "type": "text",
-      "label": "Komendy wywołujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "label": "Komendy wywołujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
       "value": "!timerstart"
     },
-    "timerStopCommands": {
+    "wlCounterStopCommands": {
       "type": "text",
-      "label": "Komendy stopujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "label": "Komendy stopujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
       "value": "!timerstop"
+    },
+    "winCounter": {
+        "type": "text",
+        "label": "Licznik winów",
+        "value": "{winC}"
+    },
+    "loseCounter": {
+        "type": "text",
+        "label": "Licznik loseów",
+        "value": "{loseC}"
     },
     "privileges": {
       "type": "dropdown",
-      "label": "Dostęp do Timer'a",
+      "label": "Dostęp do Licznik'a",
       "value": "mods",
       "options": {
         "mods": "Moderatorzy"
@@ -31,6 +41,6 @@
     },
     "widgetUpdateUrl": {
       "type": "hidden",
-      "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/Timer"
+      "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/WinLoseCounter"
     }
   }
