@@ -1,0 +1,36 @@
+{
+    "timerStartCommands": {
+      "type": "text",
+      "label": "Komendy wywołujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "value": "!timerstart"
+    },
+    "timerStopCommands": {
+      "type": "text",
+      "label": "Komendy stopujące Timer (można wpisać wiele komend oddzielonych przecinkami)",
+      "value": "!timerstop"
+    },
+    "privileges": {
+      "type": "dropdown",
+      "label": "Dostęp do Timer'a",
+      "value": "mods",
+      "options": {
+        "mods": "Moderatorzy"
+      }
+    },
+    "widgetName": {
+      "type": "hidden",
+      "value": "WinLoseCounter by MrAdamsky"
+    },
+    "widgetAuthor": {
+      "type": "hidden",
+      "value": "MrAdamsky"
+    },
+    "widgetVersion": {
+      "type": "hidden",
+      "value": "1.0"
+    },
+    "widgetUpdateUrl": {
+      "type": "hidden",
+      "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/Timer"
+    }
+  }
