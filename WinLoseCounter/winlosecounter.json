@@ -1,46 +1,46 @@
 {
-    "wlCounterStartCommands": {
+  "wlCounterStartCommands": {
+    "type": "text",
+    "label": "Komendy wywołujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
+    "value": "!showcounter"
+  },
+  "wlCounterStopCommands": {
+    "type": "text",
+    "label": "Komendy stopujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
+    "value": "!hidecounter"
+  },
+  "winCounter": {
       "type": "text",
-      "label": "Komendy wywołujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
-      "value": "!timerstart"
-    },
-    "wlCounterStopCommands": {
+      "label": "Licznik winów",
+      "value": "winC"
+  },
+  "loseCounter": {
       "type": "text",
-      "label": "Komendy stopujące Licznik (można wpisać wiele komend oddzielonych przecinkami)",
-      "value": "!timerstop"
-    },
-    "winCounter": {
-        "type": "text",
-        "label": "Licznik winów",
-        "value": "{winC}"
-    },
-    "loseCounter": {
-        "type": "text",
-        "label": "Licznik loseów",
-        "value": "{loseC}"
-    },
-    "privileges": {
-      "type": "dropdown",
-      "label": "Dostęp do Licznik'a",
-      "value": "mods",
-      "options": {
-        "mods": "Moderatorzy"
-      }
-    },
-    "widgetName": {
-      "type": "hidden",
-      "value": "WinLoseCounter by MrAdamsky"
-    },
-    "widgetAuthor": {
-      "type": "hidden",
-      "value": "MrAdamsky"
-    },
-    "widgetVersion": {
-      "type": "hidden",
-      "value": "1.0"
-    },
-    "widgetUpdateUrl": {
-      "type": "hidden",
-      "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/WinLoseCounter"
+      "label": "Licznik loseów",
+      "value": "loseC"
+  },
+  "privileges": {
+    "type": "dropdown",
+    "label": "Dostęp do Licznik'a",
+    "value": "mods",
+    "options": {
+      "mods": "Moderatorzy"
     }
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "WinLoseCounter by MrAdamsky"
+  },
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "MrAdamsky"
+  },
+  "widgetVersion": {
+    "type": "hidden",
+    "value": "1.0"
+  },
+  "widgetUpdateUrl": {
+    "type": "hidden",
+    "value": "https://github.com/MrAdamskyyS/se-widgets-by-MrAdamsky/tree/main/WinLoseCounter"
   }
+}

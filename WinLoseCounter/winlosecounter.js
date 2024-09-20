@@ -1,4 +1,4 @@
-let fieldData, apiToken, text;
+let fieldData, apiToken, text, datac, listener;
 let wlCounterStartCommands, wlCounterStopCommands, winCounter, loseCounter = [];
 
 const checkPrivileges = (data, privileges) => {
@@ -31,15 +31,32 @@ function handleTimer(obj) {
     }
 };
 
+  	function setCounter(obj){
+      const { text } = datac;
+
+      if (listener === 'bot:counter' && datac.counter === winCounter){
+          document.getElementById("wintext").innerHTML = datac.value;
+        }
+      if (listener === 'bot:counter' && datac.counter === loseCounter){
+          document.getElementById("losetext").innerHTML = datac.value;
+        }
+	};
+
 window.addEventListener('onEventReceived', function (obj) {
     if(!fieldData){
         return;
     }
+  
+  	datac = obj.detail.event;
+    listener = obj.detail.listener;
+  
     try {
+      	console.log(winCounter);
+        setCounter(obj);
         handleTimer(obj);
     } catch (e) {
         console.log(e);
-    }
+    } 
 });
 
 window.addEventListener('onWidgetLoad', function (obj) {
@@ -52,24 +69,12 @@ window.addEventListener('onWidgetLoad', function (obj) {
 
     wlCounterStartCommands = fieldData['wlCounterStartCommands'];
     wlCounterStopCommands = fieldData['wlCounterStopCommands'];
-    winCounter = fieldData['winCounter'];
-    loseCounter = fieldData['loseCounter'];
+  	winCounter = fieldData['winCounter'];
+  	loseCounter = fieldData['loseCounter'];
 });
 
 function showCounter(){
     document.getElementById("container").style.visibility = "visible";
-      SE_API.counters.get(winCounter).then(counter => {
-        // counter is of the format { counter, value }
-      	tempv = counter.value.toString();
-      	console.log(tempv);
-        document.getElementById("wintext").innerHTML = tempv;
-    });
-    SE_API.counters.get(loseCounter).then(counter => {
-        // counter is of the format { counter, value }
-        tempc = counter.value.toString();
-      	console.log(tempc);
-        document.getElementById("losetext").innerHTML = tempc;
-    });
 };
 
 function hideCounter(){
