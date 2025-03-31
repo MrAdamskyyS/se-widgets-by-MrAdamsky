@@ -1,0 +1,28 @@
+body {
+    font-family: "Winky Sans", sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+}
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+}
+#clock, #day-counter {
+    font-size: 48px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 1.5px black;
+}
+#flag, #icon, #temperature {
+    font-size: 40px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    -webkit-text-stroke: 1.5px black;
+}
+#temperature {
+    font-weight: bold;
+    font-size: 48px;
+}

@@ -1,0 +1,17 @@
+{
+    "city": {
+      "type": "text",
+      "label": "Podaj miasto",
+      "value": ""
+    },
+    "data1": {
+      "type": "text",
+      "label": "Podaj datę",
+      "value": "24.03.2025"
+    },
+    "apiKey": {
+      "type": "password",
+      "label": "Podaj klucz api do openWeathermap",
+      "value": ""
+    }
+  }
