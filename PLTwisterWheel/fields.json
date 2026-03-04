@@ -1,0 +1,110 @@
+{
+  "spinCommand": {
+    "type": "text",
+    "label": "Komenda do kręcenia",
+    "value": "!twister"
+  },
+  "spinCost": {
+    "type": "number",
+    "label": "Koszt losowania w punktach",
+    "value": 2500
+  },
+  "cooldownTime": {
+    "type": "number",
+    "label": "Cooldown po losowaniu (s)",
+    "value": 30
+  },
+  "startCommand": {
+    "type": "text",
+    "label": "Komenda Start (Admin)",
+    "value": "!twisterstart"
+  },
+  "stopCommand": {
+    "type": "text",
+    "label": "Komenda Stop (Admin)",
+    "value": "!twisterstop"
+  },
+  "privileges": {
+    "type": "dropdown",
+    "label": "Kto może używać komend Start/Stop?",
+    "value": "mods",
+    "options": {
+      "everybody": "Wszyscy",
+      "justSubs": "Suby",
+      "subs": "Suby + VIP'y + Moderatorzy",
+      "vips": "VIP'y + Moderatorzy",
+      "mods": "Moderatorzy",
+      "broadcaster": "Strimer"
+    }
+  },
+  "channelId": {
+    "type": "text",
+    "label": "Id kanału SE (Wymagane!)",
+    "value": ""
+  },
+  "jwtToken": {
+    "type": "password",
+    "label": "JWT Token SE (Wymagane!)",
+    "value": ""
+  },
+  "duration": {
+    "type": "slider",
+    "label": "Długość animacji koła (s)",
+    "value": 4,
+    "min": 2,
+    "max": 10,
+    "steps": 1
+  },
+  "spins": {
+    "type": "number",
+    "label": "Ilość obrotów koła",
+    "value": 5
+  },
+  "hr1": {
+    "type": "button",
+    "label": "--- USTAWIENIA TTS ---",
+    "value": ""
+  },
+  "useTTS": {
+    "type": "checkbox",
+    "label": "Czy bot ma czytać wynik (TTS)?",
+    "value": true
+  },
+  "voice": {
+    "type": "dropdown",
+    "label": "Głos TTS",
+    "value": "Maja",
+    "options": {
+      "Maja": "Maja (PL)",
+      "Jacek": "Jacek (PL)",
+      "Jan": "Jan (PL)",
+      "Ewa": "Ewa (PL)",
+      "Brian": "Brian (EN)",
+      "Russell": "Russell (EN)"
+    }
+  },
+  "volume": {
+    "type": "slider",
+    "label": "Głośność TTS",
+    "value": 0.5,
+    "min": 0,
+    "max": 1,
+    "steps": 0.1
+  },
+  "widgetName": {
+    "type": "hidden",
+    "value": "PL Twister wheel by MrAdamsky"
+  },
+  "widgetAuthor": {
+    "type": "hidden",
+    "value": "mradamsky"
+  },
+  "widgetVersion": {
+    "type": "hidden",
+    "value": "1.0"
+  },
+  "widgetUpdateUrl": {
+    "type": "hidden",
+    "value": "https://github.com/"
+  }
+}
